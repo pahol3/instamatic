@@ -53,6 +53,29 @@ class CameraServal:
 
         return arr
 
+    def getMovie(self, n_frames, exposure=None, binsize=None, **kwargs):
+        """Movie acquisition routine. If the exposure and binsize are not
+        given, the default values are read from the config file.
+
+        n_frames:
+            Number of frames to collect
+        exposure:
+            Exposure time in seconds.
+        binsize:
+            Which binning to use.
+        """
+        if exposure is None:
+            exposure = self.default_exposure
+        if not binsize:
+            binsize = self.default_binsize
+
+        arr = self.conn.get_images(
+            nTriggers=n_frames,
+            ExposureTime=exposure,
+            TriggerPeriod=0.05)
+
+        return arr
+
     def getImageDimensions(self) -> (int, int):
         """Get the binned dimensions reported by the camera."""
         binning = self.getBinning()
