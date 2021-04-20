@@ -69,6 +69,7 @@ Alternatively, some of the methods implemented in `Instamatic` are described in:
 * **`docs/`** - Documentation
 * **`instamatic/`**
   * **`TEMController/`** - Microscope interaction code
+  * **`sofware/`** - Software interaction code (TIA, DM, etc.)
   * **`calibrate/`** - Tools for calibration
   * **`camera/`** - Camera interaction code
   * **`config/`** - Configuration management
