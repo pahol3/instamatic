@@ -21,6 +21,8 @@ def get_tem(interface: str):
         from .jeol_microscope import JeolMicroscope as cls
     elif interface == 'fei':
         from .fei_microscope import FEIMicroscope as cls
+    elif interface == 'themis':
+        from .fei_STEM_microscope import FEIMicroscope as cls
     elif interface == 'fei_simu':
         from .fei_simu_microscope import FEISimuMicroscope as cls
     else:
@@ -47,11 +49,11 @@ def Microscope(name: str = None, use_server: bool = False):
         config.load_microscope_config(microscope_name=name)
         interface = config.microscope.interface
     else:
-        interface = config.microscope.interface
+        interface = name
 
     if use_server:
         from .microscope_client import MicroscopeClient
-        tem = MicroscopeClient(name=name)
+        tem = MicroscopeClient(name=interface)
     else:
         cls = get_tem(interface)
         tem = cls(name=name)
