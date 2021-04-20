@@ -187,10 +187,6 @@ class FEIMicroscope(object):
         
         input("Please select the type of sample stage before moving on.\nPress <ENTER> to continue...")
 
-        # self.Magnification_value = random.choice(self.MAGNIFICATIONS)
-        #self.Magnification_value = 2500
-        #self.Magnification_value_diff = 300
-
     def getHTValue(self):
         return self.gun.HTValue
     

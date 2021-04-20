@@ -11,7 +11,7 @@ from .serializer import dumper
 from .serializer import loader
 from instamatic import config
 from instamatic.TEMController import Microscope
-from instamatic.TEMController.software import Software
+from instamatic.software import Software
 
 condition = threading.Condition()
 box = []
